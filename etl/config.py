@@ -14,3 +14,4 @@ MAX_PAGES_TO_SCRAPE = 100
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), 'data', 'raw', 'html')
 URL_LIST_PATH = os.path.join(os.path.dirname(__file__), 'data', 'raw', 'listing_urls.txt')
 LOG_FILE_PATH = os.path.join(os.path.dirname(__file__), 'etl.log')
+PROCESSED_DATA_PATH = os.path.join(os.path.dirname(__file__), 'data', 'processed', 'listings.parquet')
