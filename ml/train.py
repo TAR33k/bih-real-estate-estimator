@@ -98,6 +98,15 @@ def feature_engineering_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     city_price_map = df_filtered.groupby('city')['price_per_m2'].median()
     df_filtered['city_median_price_per_m2'] = df_filtered['city'].map(city_price_map)
     logging.info("Created 'city_median_price_per_m2' feature to encode location value.")
+
+    city_price_map = df_filtered.groupby('city')['price_per_m2'].median().to_dict()
+    try:
+        import json
+        with open('city_price_map.json', 'w') as f:
+            json.dump(city_price_map, f)
+        logging.info("Successfully saved city_price_map.json")
+    except Exception as e:
+        logging.error(f"Failed to save city_price_map.json. Error: {e}")
     
     return df_filtered
 
