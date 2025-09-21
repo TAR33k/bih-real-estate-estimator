@@ -1,15 +1,12 @@
-# Python
 venv/
 __pycache__/
 *.pyc
 
-# Secrets
 .env
 
-# Data Files
 data/*
 etl/data/*
 ml/data/*
 
-# Log files
 *.log
+*.joblib
