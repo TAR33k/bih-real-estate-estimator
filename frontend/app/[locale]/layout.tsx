@@ -13,6 +13,13 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "BIH Real Estate Estimator",
   description: "Estimate flat and apartment prices in Bosnia and Herzegovina",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
 };
 
 type Props = {
