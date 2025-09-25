@@ -9,5 +9,9 @@ class Settings:
     
     RATE_LIMIT_REQUESTS: int = int(os.getenv("RATE_LIMIT_REQUESTS", 20))
     RATE_LIMIT_MINUTES: int = int(os.getenv("RATE_LIMIT_MINUTES", 1))
+    
+    ALLOWED_ORIGINS: list = os.getenv("ALLOWED_ORIGINS", "*").split(",")
+    
+    ENVIRONMENT: str = os.getenv("ENVIRONMENT", "development")
 
 settings = Settings()

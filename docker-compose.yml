@@ -5,12 +5,8 @@ services:
       dockerfile: ./api/Dockerfile
     container_name: bih-estimator-api
     env_file:
-      - ./api/.env
-    
-    environment:
-      - MODEL_PATH=./ml/model.joblib
-      - CITY_MAP_PATH=./ml/city_price_map.json
-      
+      - ./api/.env.template
+
     ports:
-      - "8000:8000"
+      - "8080:8080"
     restart: unless-stopped

@@ -31,7 +31,7 @@ app.add_middleware(SecurityHeadersMiddleware)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=settings.ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
@@ -46,6 +46,10 @@ def startup_event():
 @limiter.limit(f"{settings.RATE_LIMIT_REQUESTS}/{settings.RATE_LIMIT_MINUTES}minute")
 async def read_root(request: Request):
     return {"message": "Welcome to the BIH Real Estate Estimator API. Go to /docs for details."}
+
+@app.get("/health", tags=["Health"])
+async def health_check():
+    return {"status": "healthy", "environment": settings.ENVIRONMENT}
 
 from .router import router
 app.include_router(router)
