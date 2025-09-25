@@ -1,6 +1,6 @@
 {
   "Header": {
-    "title": "BIH Procjenitelj",
+    "title": "BIH Procjenitelj Nekretnina",
     "subtitle": "Nekretnina",
     "tagline": "ML Procjena Vrijednosti Nekretnina"
   },
@@ -39,7 +39,7 @@
     "submitting": "Analiziram nekretninu...",
     "reset": "Nova procjena",
     "validation": {
-      "locationRequired": "Molimo odaberite lokaciju",
+      "locationRequired": "Odaberite lokaciju",
       "sizeMin": "Kvadratura mora biti najmanje 15 m²",
       "sizeMax": "Kvadratura ne može biti veća od 1000 m²",
       "roomsMin": "Potrebna je najmanje 1 soba",
@@ -48,10 +48,10 @@
       "floorMax": "Sprat ne može biti viši od 100",
       "bathroomsMin": "Potrebno je najmanje 1 kupatilo",
       "bathroomsMax": "Maksimalno 10 kupatila dozvoljeno",
-      "yearRequired": "Molimo odaberite godinu izgradnje",
-      "conditionRequired": "Molimo odaberite stanje nekretnine",
-      "furnishedRequired": "Molimo odaberite status opremljenosti",
-      "heatingRequired": "Molimo odaberite vrstu grijanja"
+      "yearRequired": "Odaberite godinu izgradnje",
+      "conditionRequired": "Odaberite stanje nekretnine",
+      "furnishedRequired": "Odaberite status opremljenosti",
+      "heatingRequired": "Odaberite vrstu grijanja"
     }
   },
   "Result": {

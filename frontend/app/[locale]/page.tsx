@@ -48,10 +48,8 @@ export default function Home() {
   const handleNewEstimation = () => {
     setPreviousPrediction(prediction);
     setPreviousFormData(formData);
-    
     setPrediction(null);
     setFormData(null);
-    
     setViewMode('split-view');
   };
 
@@ -64,144 +62,96 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col gradient-bg">
+    <>
       <Header />
       
-      <motion.main 
-        className="flex-grow container mx-auto p-4 md:p-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
+      <main className="flex-grow container mx-auto p-4 md:p-12">
         <AnimatePresence mode="wait">
-          {/* Initial form view */}
           {viewMode === 'form' && (
             <motion.div
               key="form-view"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start"
             >
-              {/* Form Section */}
               <motion.div 
-                className="lg:sticky lg:top-8"
-                initial={{ opacity: 0, x: -50 }}
+                className="lg:sticky lg:top-28"
+                initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
               >
-                <EstimationForm
-                  onSubmit={handleFormSubmit}
-                  isLoading={isLoading}
-                  isResultShown={false}
-                />
+                <EstimationForm onSubmit={handleFormSubmit} isLoading={isLoading} isResultShown={false} />
               </motion.div>
 
-              {/* Results Section */}
               <motion.div 
-                className="lg:sticky lg:top-8"
-                initial={{ opacity: 0, x: 50 }}
+                className="lg:sticky lg:top-28"
+                initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
               >
-                <ResultDisplay
-                  price={null}
-                  isLoading={false}
-                  onReset={handleReset}
-                  onNewEstimation={handleNewEstimation}
-                  viewMode="sidebar"
-                />
+                <ResultDisplay price={null} isLoading={false} onReset={handleReset} onNewEstimation={handleNewEstimation} viewMode="sidebar" />
               </motion.div>
             </motion.div>
           )}
 
-          {/* Full-screen result view */}
           {viewMode === 'full-result' && (
             <motion.div
               key="full-result-view"
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.05 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="h-full"
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+              className="h-full flex items-center justify-center"
             >
-              <ResultDisplay
-                price={prediction}
-                isLoading={isLoading}
-                onReset={handleReset}
-                onNewEstimation={handleNewEstimation}
-                viewMode="fullscreen"
-                formData={formData}
-              />
+              <ResultDisplay price={prediction} isLoading={isLoading} onReset={handleReset} onNewEstimation={handleNewEstimation} viewMode="fullscreen" formData={formData} />
             </motion.div>
           )}
 
-          {/* Split view with previous results */}
           {viewMode === 'split-view' && (
             <motion.div
               key="split-view"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.5 }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start"
             >
-              {/* Form Section */}
               <motion.div 
-                className="lg:sticky lg:top-8"
-                initial={{ opacity: 0, x: -50 }}
+                className="lg:sticky lg:top-28"
+                initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
               >
-                <EstimationForm
-                  onSubmit={handleFormSubmit}
-                  isLoading={isLoading}
-                  isResultShown={true}
-                />
+                <EstimationForm onSubmit={handleFormSubmit} isLoading={isLoading} isResultShown={true} />
               </motion.div>
 
-              {/* Results Section with Previous Results */}
               <motion.div 
-                className="lg:sticky lg:top-8 space-y-6"
-                initial={{ opacity: 0, x: 50 }}
+                className="lg:sticky lg:top-28 space-y-6"
+                initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
               >
-                {/* Current/Loading Results */}
-                <ResultDisplay
-                  price={prediction}
-                  isLoading={isLoading}
-                  onReset={handleReset}
-                  onNewEstimation={handleNewEstimation}
-                  viewMode="sidebar"
-                />
+                <ResultDisplay price={prediction} isLoading={isLoading} onReset={handleReset} onNewEstimation={handleNewEstimation} viewMode="sidebar" />
                 
-                {/* Previous Results */}
                 {previousPrediction && previousFormData && (
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6, duration: 0.5 }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
                   >
-                    <ResultDisplay
-                      price={previousPrediction}
-                      isLoading={false}
-                      onReset={handleReset}
-                      onNewEstimation={handleNewEstimation}
-                      viewMode="previous"
-                      formData={previousFormData}
-                    />
+                    <ResultDisplay price={previousPrediction} isLoading={false} onReset={handleReset} onNewEstimation={handleNewEstimation} viewMode="previous" formData={previousFormData} />
                   </motion.div>
                 )}
               </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.main>
+      </main>
 
       <Footer />
       <SonnerToaster />
-    </div>
+    </>
   );
 }

@@ -1,6 +1,6 @@
 {
   "Header": {
-    "title": "BIH Real Estate",
+    "title": "BIH Real Estate Estimator",
     "subtitle": "Estimator",
     "tagline": "ML-Powered Property Valuation"
   },
@@ -39,7 +39,7 @@
     "submitting": "Analyzing Property...",
     "reset": "New Estimation",
     "validation": {
-      "locationRequired": "Please select a location",
+      "locationRequired": "Select a location",
       "sizeMin": "Size must be at least 15 m²",
       "sizeMax": "Size cannot exceed 1000 m²",
       "roomsMin": "At least 1 room is required",
@@ -48,10 +48,10 @@
       "floorMax": "Floor cannot exceed 100",
       "bathroomsMin": "At least 1 bathroom is required",
       "bathroomsMax": "Maximum 10 bathrooms allowed",
-      "yearRequired": "Please select construction year",
-      "conditionRequired": "Please select property condition",
-      "furnishedRequired": "Please select furnishing status",
-      "heatingRequired": "Please select heating type"
+      "yearRequired": "Select construction year",
+      "conditionRequired": "Select property condition",
+      "furnishedRequired": "Select furnishing status",
+      "heatingRequired": "Select heating type"
     }
   },
   "Result": {

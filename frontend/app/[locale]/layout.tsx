@@ -4,7 +4,11 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from 'next-intl';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: 'swap',
+  variable: '--font-sans',
+});
 
 export const metadata: Metadata = {
   title: "BIH Real Estate Estimator",
@@ -21,15 +25,18 @@ export default async function RootLayout({ children, params }: Props) {
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${inter.variable} font-sans`}>
         <NextIntlClientProvider>
           <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
+            attribute="data-theme"
+            defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <div className="aurora-background" />
+            <div className="relative min-h-screen flex flex-col">
+              {children}
+            </div>
           </ThemeProvider>
         </NextIntlClientProvider>
       </body>
