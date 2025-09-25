@@ -1,6 +1,6 @@
 "use client";
 
-import { useForm, SubmitHandler, Control, FieldValues } from "react-hook-form";
+import { useForm, Control, FieldValues } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { useTranslations } from "next-intl";
@@ -16,7 +16,6 @@ import {
 import {
   Command,
   CommandEmpty,
-  CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,

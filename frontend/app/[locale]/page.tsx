@@ -30,7 +30,7 @@ export default function Home() {
     
     try {
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_API_URL+"/predict" || "http://localhost:8080/predict",
+        (process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080") + "/predict",
         data
       );
       setPrediction(response.data.estimated_price_km);

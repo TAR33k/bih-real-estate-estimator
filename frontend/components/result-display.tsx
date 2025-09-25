@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calculator, Loader2, MapPin, TrendingUp, Home, Sparkles, Building, Bed, Bath } from "lucide-react";
+import { Calculator, Loader2, MapPin, TrendingUp, Home, Building, Bed, Bath } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { FormSchemaType } from "./estimation-form";
