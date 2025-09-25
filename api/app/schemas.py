@@ -181,8 +181,8 @@ class YearBuiltEnum(str, Enum):
 class ApartmentPredictionRequest(BaseModel):
     """Defines the user-friendly input schema for apartment predictions."""
     location: LocationEnum
-    size_m2: float = Field(..., gt=10)
-    rooms: float = Field(..., gt=0)
+    size_m2: float = Field(..., ge=15)
+    rooms: float = Field(..., ge=1)
     floor: int = Field(..., gt = -5)
     bathrooms: Optional[int] = Field(default=1, ge=1)
     year_built: YearBuiltEnum
@@ -211,6 +211,7 @@ class ApartmentPredictionRequest(BaseModel):
                 "has_balcony": True,
                 "has_parking": True,
                 "has_elevator": True,
+                "has_garage": True,
                 "is_registered": True,
                 "has_armored_door": True
             }

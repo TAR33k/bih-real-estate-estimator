@@ -48,6 +48,7 @@ def parse_year(year_str: str) -> int:
     return np.nan
 
 def custom_round(price: float) -> int:
+    price = price * 0.8
     if price < 100000:
         return int(round(price / 1000) * 1000)
     elif price < 200000:
